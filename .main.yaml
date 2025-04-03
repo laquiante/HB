@@ -1,0 +1,6 @@
+---
+- name: call oob-mgmt-server preparation
+  ansible.builtin.import_playbook: F1
+ 
+- name: call host preparation
+  ansible.builtin.import_playbook: F2

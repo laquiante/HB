@@ -1,0 +1,97 @@
+# ALQ, Hamburg APR 2025
+
+oob-mgmt-server ansible_host=192.168.200.1
+oob-mgmt-switch ansible_host=192.168.200.43 
+
+IGW01-R008V01 ansible_host=192.168.200.7
+IGW02-R008V02 ansible_host=192.168.200.8
+KGW01-A-R008V01 ansible_host=192.168.200.9
+KGW02-A-R008V02 ansible_host=192.168.200.10
+KGW01-I-R008V01 ansible_host=192.168.200.11
+KGW02-I-R008V02 ansible_host=192.168.200.12
+VGW01-A-R008V01 ansible_host=192.168.200.13
+VGW02-A-R008V02 ansible_host=192.168.200.14
+VGW01-I-R008V01 ansible_host=192.168.200.15
+VGW02-I-R008V02 ansible_host=192.168.200.16
+SVC01-R008V01 ansible_host=192.168.200.17
+SVC02-R008V02 ansible_host=192.168.200.18
+FEL01-R008V01 ansible_host=192.168.200.19
+FEL02-R008V02 ansible_host=192.168.200.20
+BGW01-R008V01 ansible_host=192.168.200.21
+BGW02-R008V02 ansible_host=192.168.200.22
+IGW01-R011V01 ansible_host=192.168.200.27
+IGW02-R011V02 ansible_host=192.168.200.28
+KGW01-A-R011V01 ansible_host=192.168.200.29
+KGW02-A-R011V02 ansible_host=192.168.200.30
+KGW01-I-R011V01 ansible_host=192.168.200.31
+KGW02-I-R011V02 ansible_host=192.168.200.32
+VGW01-A-R011V01 ansible_host=192.168.200.33
+VGW02-A-R011V02 ansible_host=192.168.200.34
+VGW01-I-R011V01 ansible_host=192.168.200.35
+VGW02-I-R011V02 ansible_host=192.168.200.36
+SVC01-R011V01 ansible_host=192.168.200.37
+SVC02-R011V02 ansible_host=192.168.200.38
+FEL01-R011V01 ansible_host=192.168.200.39
+FEL02-R011V02 ansible_host=192.168.200.40
+BGW01-R011V01 ansible_host=192.168.200.41
+BGW02-R011V02 ansible_host=192.168.200.42
+Hans ansible_host=192.168.200.2 
+Heidi ansible_host=192.168.200.3
+Harburg ansible_host=192.168.200.4
+Hoheluft ansible_host=192.168.200.5
+Horn ansible_host=192.168.200.6
+Kirsten ansible_host=192.168.200.23
+Knut ansible_host=192.168.200.24
+Wik ansible_host=192.168.200.25
+Wellsee ansible_host=192.168.200.26
+  
+[host]
+Hans ansible_host=192.168.200.2 
+Heidi ansible_host=192.168.200.3
+Harburg ansible_host=192.168.200.4
+Hoheluft ansible_host=192.168.200.5
+Horn ansible_host=192.168.200.6
+Kirsten ansible_host=192.168.200.23
+Knut ansible_host=192.168.200.24
+Wik ansible_host=192.168.200.25
+Wellsee ansible_host=192.168.200.26
+
+[router]
+IGW01-R008V01 ansible_host=192.168.200.7
+IGW02-R008V02 ansible_host=192.168.200.8
+KGW01-A-R008V01 ansible_host=192.168.200.9
+KGW02-A-R008V02 ansible_host=192.168.200.10
+KGW01-I-R008V01 ansible_host=192.168.200.11
+KGW02-I-R008V02 ansible_host=192.168.200.12
+VGW01-A-R008V01 ansible_host=192.168.200.13
+VGW02-A-R008V02 ansible_host=192.168.200.14
+VGW01-I-R008V01 ansible_host=192.168.200.15
+VGW02-I-R008V02 ansible_host=192.168.200.16
+SVC01-R008V01 ansible_host=192.168.200.17
+SVC02-R008V02 ansible_host=192.168.200.18
+FEL01-R008V01 ansible_host=192.168.200.19
+FEL02-R008V02 ansible_host=192.168.200.20
+BGW01-R008V01 ansible_host=192.168.200.21
+BGW02-R008V02 ansible_host=192.168.200.22
+IGW01-R011V01 ansible_host=192.168.200.27
+IGW02-R011V02 ansible_host=192.168.200.28
+KGW01-A-R011V01 ansible_host=192.168.200.29
+KGW02-A-R011V02 ansible_host=192.168.200.30
+KGW01-I-R011V01 ansible_host=192.168.200.31
+KGW02-I-R011V02 ansible_host=192.168.200.32
+VGW01-A-R011V01 ansible_host=192.168.200.33
+VGW02-A-R011V02 ansible_host=192.168.200.34
+VGW01-I-R011V01 ansible_host=192.168.200.35
+VGW02-I-R011V02 ansible_host=192.168.200.36
+SVC01-R011V01 ansible_host=192.168.200.37
+SVC02-R011V02 ansible_host=192.168.200.38
+FEL01-R011V01 ansible_host=192.168.200.39
+FEL02-R011V02 ansible_host=192.168.200.40
+BGW01-R011V01 ansible_host=192.168.200.41
+BGW02-R011V02 ansible_host=192.168.200.42
+
+[all:vars]
+ansible_user=cumulus
+ansible_become_pass=Academy123
+ansible_ssh_pass=Academy123
+ansible_ssh_common_args='-o UserKnownHostsFile=/dev/null'

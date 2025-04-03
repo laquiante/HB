@@ -1,5 +1,5 @@
 -
-  hosts: Hans Hamburg Wittduen Kiel Bremen Berlin
+  hosts: Hans Heidi Harburg Hoheluft Horn Kirsten Knut Wik Wellsee
   become: true
   user: ubuntu
   gather_facts: false
@@ -21,7 +21,7 @@
 
     - name: name resulution   
       ansible.builtin.copy:
-        src: /home/cumulus/HL/inventory/files/hosts
+        src: /home/cumulus/HB/inventory/files/hosts
         dest: /etc/hosts
         owner: cumulus
         group: admin

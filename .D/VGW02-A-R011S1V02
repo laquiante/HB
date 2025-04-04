@@ -1,0 +1,8 @@
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.6.0
+- set:
+    system:
+      hostname: VGW02-A-R011S1V02

@@ -5,4 +5,4 @@
     version: Cumulus Linux 5.6.0
 - set:
     system:
-      hostname: KGW02-A-R008V02
+      hostname: KGW02-A-R008S1V02

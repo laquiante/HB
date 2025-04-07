@@ -4,5 +4,12 @@
     rev-id: 1.0
     version: Cumulus Linux 5.6.0
 - set:
+    interface:
+      lo:
+        ip:
+          address:
+            21.0.81.2/32: {}
+            fd99::21.0.81.2/128: {}
+        type: loopback
     system:
       hostname: IGW01-R008S1V01

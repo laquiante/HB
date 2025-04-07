@@ -1,7 +1,6 @@
 graph "ALQ" {
 
-  "Hans":"eth1" -- "IGW01-R008S1V01":"swp1" 
- "Heidi":"eth1" -- "IGW02-R008S1V02":"swp1" 
+  "Hans":"eth1" -- "IGW01-R008S1V01":"swp1"  
  
  "IGW01-R008S1V01":"swp31" -- "KGW01-A-R008S1V01":"swp1"
  "IGW01-R008S1V01":"swp32" -- "KGW02-A-R008S1V02":"swp1"

@@ -11,5 +11,15 @@
             21.0.81.2/32: {}
             fd99::21.0.81.2/128: {}
         type: loopback
+      swp1:
+        ip:
+          address:
+            fd01:0008:0001::1/64: {}
+      swp1-2:
+        type: swp
+      swp2:
+        ip:
+          address:
+            fd01:0011:0020::1/64: {}
     system:
       hostname: IGW01-R008S1V01

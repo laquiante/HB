@@ -9,3 +9,7 @@ network:
       dhcp6: false
       addresses:
       - fd01:0000:0001::10/64
+      routes:
+        - to: "::/0"
+          via: fd01:0008:0002::1/64
+          on-link: true 

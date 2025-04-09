@@ -49,6 +49,9 @@
             address-family:
               ipv6-unicast:
                 enable: on
+                network:
+                  fd30:0008:1001:0001::/64: {}
+                  fd30:0008:1001:0101::/64: {}
             enable: on
             neighbor:
               swp1:
@@ -66,6 +69,9 @@
             address-family:
               ipv6-unicast:
                 enable: on
+                network:
+                  fd31:0008:1001:0001::/64: {}
+                  fd31:0008:1001:0101::/64: {}
             enable: on
             neighbor:
               swp33:

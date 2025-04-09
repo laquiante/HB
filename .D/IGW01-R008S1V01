@@ -1,18 +1,3 @@
-- set:
-    interface:
-      swp1:
-        description: Kunde-Hans
-      swp2:
-        description: R011-erfordert-L3VPN-Dienst
-      swp31:
-        description: nach-KGW01-R008S1V01
-      swp32:
-        description: nach-KGW02-R008S1V02
-cumulus@IGW01-R008S1V01:mgmt:~$ nv config apply
-applied [rev_id: 6]
-cumulus@IGW01-R008S1V01:mgmt:~$ nv config save
-saved [rev_id: applied]
-cumulus@IGW01-R008S1V01:mgmt:~$ nv config show
 - header:
     model: VX
     nvue-api-version: nvue_v1

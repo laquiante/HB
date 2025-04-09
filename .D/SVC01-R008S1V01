@@ -4,5 +4,32 @@
     rev-id: 1.0
     version: Cumulus Linux 5.6.0
 - set:
+    interface:
+      lo:
+        ip:
+          address:
+            61.0.81.2/32: {}
+            fd99::61:0:81:2/128: {}
+        type: loopback
+      swp1:
+        ip:
+          address:
+            fd30:0008:1001::1/64: {}
+          vrf: v-KGW-n-SVC
+      swp1,33:
+        type: swp
+      swp33:
+        ip:
+          address:
+            fd31:0008:1001::63/64: {}
+          vrf: v-SVC-n-KGW
+    router:
+      bgp:
+        autonomous-system: 42008102
+        enable: on
+        router-id: 61.0.81.2
     system:
-      hostname: SVC01-R008S1V01
+      hostname: VGW01-A-R008S1V01
+    vrf:
+      v-KGW-n-SVC: {}
+      v-SVC-n-KGW: {}

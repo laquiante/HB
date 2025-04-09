@@ -4,5 +4,24 @@
     rev-id: 1.0
     version: Cumulus Linux 5.6.0
 - set:
+    interface:
+      swp1:
+        ip:
+          address:
+            fd10:0008:1001:0001::1/64: {}
+          vrf: Hamburg
+      swp1-2:
+        type: swp
+      swp2:
+        ip:
+          address:
+            fd10:0008:1001:0002::1/64: {}
     system:
       hostname: KGW01-A-R008S1V01
+    vrf:
+      Bremen: {}
+      Hamburg: {}
+      Hannover: {}
+      Kiel: {}
+      nach-SVC: {}
+      vom-SVC: {}

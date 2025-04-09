@@ -15,11 +15,19 @@
         ip:
           address:
             fd01:0008:0001::1/64: {}
-      swp1-2:
+      swp1-2,31-32:
         type: swp
       swp2:
         ip:
           address:
             fd01:0011:0020::1/64: {}
+      swp31:
+        ip:
+          address:
+            fd10:0008:1001:0001::31/64: {}
+      swp32:
+        ip:
+          address:
+            fd10:0008:1001:0001::32/64: {}
     system:
       hostname: IGW01-R008S1V01

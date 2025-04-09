@@ -63,6 +63,15 @@
                     route-reflector-client: on
                 remote-as: internal
                 type: unnumbered
+              swp11:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                    route-reflector-client: on
+                remote-as: internal
+                type: unnumbered
       v-FEL:
         router:
           bgp:
@@ -75,6 +84,15 @@
             enable: on
             neighbor:
               swp33:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                    route-reflector-client: on
+                remote-as: internal
+                type: unnumbered
+              swp41:
                 address-family:
                   ipv4-unicast:
                     enable: off

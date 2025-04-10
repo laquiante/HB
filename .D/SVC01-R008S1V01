@@ -21,7 +21,7 @@
       swp11:
         ip:
           address:
-            fd60:0008:1001:0301::11/64: {}
+            fc60:0008:1001:0301::11/64: {}
           vrf: n-FEL-I
       swp21:
         ip:
@@ -41,7 +41,7 @@
       swp51:
         ip:
           address:
-            fd61:0008:1001:0301::41/64: {}
+            fc61:0008:1001:0301::41/64: {}
           vrf: v-FEL-I
     router:
       bgp:
@@ -59,12 +59,6 @@
                 enable: on
                 network:
                   fdA0:0008:1001:0201::/64: {}
-                route-import:
-                  from-vrf:
-                    enable: on
-                    list:
-                      n-FEL-A: {}
-                      n-FEL-I: {}
             enable: on
             neighbor:
               swp21:
@@ -75,12 +69,23 @@
                     enable: on
                 remote-as: internal
                 type: unnumbered
+          static:
+            default6:
+              address-family: ipv6-unicast
+              via:
+                fda1:8:1001:0201::1:
+                  type: ipv6-address
       n-FEL-A:
         router:
           bgp:
             address-family:
               ipv6-unicast:
                 enable: on
+                route-import:
+                  from-vrf:
+                    enable: on
+                    list:
+                      n-FEL: {}
             enable: on
             neighbor:
               swp1:
@@ -91,12 +96,24 @@
                     enable: on
                 remote-as: external
                 type: unnumbered
+          static:
+            default6:
+              address-family: ipv6-unicast
+              via:
+                fda1:8:1001:0201::1:
+                  type: ipv6-address
+                  vrf: n-FEL
       n-FEL-I:
         router:
           bgp:
             address-family:
               ipv6-unicast:
                 enable: on
+                route-import:
+                  from-vrf:
+                    enable: on
+                    list:
+                      n-FEL: {}
             enable: on
             neighbor:
               swp11:
@@ -107,6 +124,13 @@
                     enable: on
                 remote-as: external
                 type: unnumbered
+          static:
+            default6:
+              address-family: ipv6-unicast
+              via:
+                fda1:8:1001:0201::1:
+                  type: ipv6-address
+                  vrf: n-FEL
       v-FEL:
         router:
           bgp:
@@ -115,6 +139,12 @@
                 enable: on
                 network:
                   fdA1:0008:1001:0201::/64: {}
+                route-import:
+                  from-vrf:
+                    enable: on
+                    list:
+                      v-FEL-A: {}
+                      v-FEL-I: {}
             enable: on
             neighbor:
               swp31:
@@ -131,11 +161,6 @@
             address-family:
               ipv6-unicast:
                 enable: on
-                route-import:
-                  from-vrf:
-                    enable: on
-                    list:
-                      v-FEL: {}
             enable: on
             neighbor:
               swp41:
@@ -152,11 +177,6 @@
             address-family:
               ipv6-unicast:
                 enable: on
-                route-import:
-                  from-vrf:
-                    enable: on
-                    list:
-                      v-FEL: {}
             enable: on
             neighbor:
               swp51:

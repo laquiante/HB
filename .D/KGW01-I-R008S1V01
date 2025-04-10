@@ -14,19 +14,19 @@
       swp1:
         ip:
           address:
-            fd40:0008:1001::1/64: {}
+            fc40:0008:1001:0001::1/64: {}
           vrf: Hamburg
       swp1,31,33:
         type: swp
       swp31:
         ip:
           address:
-            fd60:0008:1001::31/64: {}
+            fc60:0008:1001:1::31/64: {}
           vrf: n-FEL
       swp33:
         ip:
           address:
-            fd61:0008:1001::33/64: {}
+            fc61:0008:1001:1::33/64: {}
           vrf: v-FEL
     router:
       bgp:
@@ -56,7 +56,7 @@
             default6:
               address-family: ipv6-unicast
               via:
-                fd30:8:1001:0301::11:
+                fc60:8:1001:1::1:
                   type: ipv6-address
                   vrf: n-FEL
       n-FEL:
@@ -68,7 +68,7 @@
               ipv6-unicast:
                 enable: on
                 network:
-                  fd60:8:1001:1::/64: {}
+                  fc60:8:1001:1::/64: {}
             enable: on
             neighbor:
               sw31:

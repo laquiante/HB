@@ -36,8 +36,7 @@
     system:
       hostname: KGW01-I-R008S1V01
     vrf:
-      Hamburg: {}
-      n-FEL:
+      Hamburg:
         router:
           bgp:
             address-family:
@@ -45,6 +44,41 @@
                 enable: on
             enable: on
             neighbor:
+              swp1:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+          static:
+            default6:
+              address-family: ipv6-unicast
+              via:
+                fd30:8:1001:0301::11:
+                  type: ipv6-address
+                  vrf: n-FEL
+      n-FEL:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: off
+              ipv6-unicast:
+                enable: on
+                network:
+                  fd60:8:1001:1::/64: {}
+            enable: on
+            neighbor:
+              sw31:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                remote-as: internal
+                type: unnumbered
               swp31:
                 remote-as: internal
                 type: unnumbered
@@ -54,4 +88,18 @@
             address-family:
               ipv6-unicast:
                 enable: on
+                route-import:
+                  from-vrf:
+                    enable: on
+                    list:
+                      Hamburg: {}
             enable: on
+            neighbor:
+              swp33:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                remote-as: internal
+                type: unnumbered

@@ -4,5 +4,45 @@
     rev-id: 1.0
     version: Cumulus Linux 5.6.0
 - set:
+    interface:
+      lo:
+        ip:
+          address:
+            112.0.81.5/32: {}
+            fd99::112:0:81:5/128: {}
+        type: loopback
+      swp1:
+        ip:
+          address:
+            fd32:0008:0001::1/64: {}
+      swp1,31:
+        type: swp
+      swp31:
+        ip:
+          address:
+            fd40:0008:1001:0001::31/64: {}
+    router:
+      bgp:
+        autonomous-system: 2
+        enable: on
     system:
       hostname: BGW01-R008S1V01
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+                network:
+                  fd32:0008:0001::/64: {}
+            enable: on
+            neighbor:
+              swp31:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                remote-as: external
+                type: unnumbered

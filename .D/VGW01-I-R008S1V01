@@ -35,5 +35,55 @@
     system:
       hostname: VGW01-I-R008S1V01
     vrf:
-      n-FEL: {}
-      v-FEL: {}
+      n-FEL:
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+            enable: on
+            neighbor:
+              swp1:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                    route-reflector-client: on
+                remote-as: internal
+                type: unnumbered
+              swp11:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                    route-reflector-client: on
+                remote-as: internal
+                type: unnumbered
+      v-FEL:
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+            enable: on
+            neighbor:
+              swp33:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                    route-reflector-client: on
+                remote-as: internal
+                type: unnumbered
+              swp41:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                    route-reflector-client: on
+                remote-as: internal
+                type: unnumbered

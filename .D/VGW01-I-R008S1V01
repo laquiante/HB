@@ -11,16 +11,27 @@
             61.0.81.3/32: {}
             fd99::61.0.81.3/128: {}
         type: loopback
+      swp1:
+        ip:
+          vrf: n-FEL
+      swp1,11,33,41:
+        type: swp
       swp11:
         ip:
           address:
             fd40:0008:1001:0101::1/64: {}
-      swp11,41:
-        type: swp
+      swp33:
+        ip:
+          vrf: v-FEL
       swp41:
         ip:
           address:
             fd41:0008:1001:0101::61/64: {}
+    router:
+      bgp:
+        autonomous-system: 42008103
+        enable: on
+        router-id: 61.0.81.3
     system:
       hostname: VGW01-I-R008S1V01
     vrf:

@@ -69,9 +69,14 @@
                     enable: off
                   ipv6-unicast:
                     enable: on
-                    route-reflector-client: on
-                remote-as: internal
+                remote-as: external
                 type: unnumbered
+          static:
+            default6:
+              address-family: ipv6-unicast
+              via:
+                fd30:8:1001:0101::1:
+                  type: ipv6-address
       v-FEL:
         router:
           bgp:
@@ -98,6 +103,5 @@
                     enable: off
                   ipv6-unicast:
                     enable: on
-                    route-reflector-client: on
-                remote-as: internal
+                remote-as: external
                 type: unnumbered

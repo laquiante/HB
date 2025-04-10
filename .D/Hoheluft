@@ -11,5 +11,5 @@ network:
       - fd32:0008:0001::10/64
       routes:
         - to: "::/0"
-          via: fd32:0008:0001::1/64
+          via: fd32:0008:0001::1
           on-link: true

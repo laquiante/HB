@@ -15,13 +15,15 @@
         ip:
           address:
             fd60:8:1001:1::1/64: {}
+      swp1,11:
+        ip:
           vrf: n-FEL
       swp1,11,33,41:
         type: swp
       swp11:
         ip:
           address:
-            f340:0008:1001:0301::1/64: {}
+            fd30:0008:1001:0301::1/64: {}
       swp33:
         ip:
           address:

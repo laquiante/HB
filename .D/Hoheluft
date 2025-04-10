@@ -8,8 +8,8 @@ network:
       dhcp4: false
       dhcp6: false
       addresses:
-      - fd32:0008:0001::10/64
+      - fe32:0008:0001::10/64
       routes:
         - to: "::/0"
-          via: fd32:0008:0001::1
+          via: fe32:0008:0001::1
           on-link: true

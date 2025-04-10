@@ -32,3 +32,8 @@
               via:
                 fda0:0008:1001:0201::31:
                   type: ipv6-address
+            fc00::/8:
+              address-family: ipv6-unicast
+              via:
+                fda0:8:1001:0201::31:
+                  type: ipv6-address

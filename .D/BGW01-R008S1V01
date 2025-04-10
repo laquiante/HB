@@ -14,13 +14,13 @@
       swp1:
         ip:
           address:
-            fd32:0008:0001::1/64: {}
+            fc32:0008:0001::1/64: {}
       swp1,31:
         type: swp
       swp31:
         ip:
           address:
-            fd40:0008:1001:0001::31/64: {}
+            fc40:0008:1001:0001::31/64: {}
     router:
       bgp:
         autonomous-system: 2
@@ -35,7 +35,7 @@
               ipv6-unicast:
                 enable: on
                 network:
-                  fd32:0008:0001::/64: {}
+                  fc32:0008:0001::/64: {}
             enable: on
             neighbor:
               swp31:

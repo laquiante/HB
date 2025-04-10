@@ -46,3 +46,9 @@
                     enable: on
                 remote-as: external
                 type: unnumbered
+          static:
+            default6:
+              address-family: ipv6-unicast
+              via:
+                fc40:8:1001:1::1:
+                  type: ipv6-address

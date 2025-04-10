@@ -14,7 +14,7 @@
       swp1:
         ip:
           address:
-            fd60:8:1001:1::1/64: {}
+            fc60:8:1001:1::1/64: {}
       swp1,11:
         ip:
           vrf: n-FEL
@@ -23,16 +23,18 @@
       swp11:
         ip:
           address:
-            fd30:0008:1001:0301::1/64: {}
+            fc60:0008:1001:0301::1/64: {}
       swp33:
         ip:
           address:
-            fd61:8:1001:1::63/64: {}
+            fc61:8:1001:1::63/64: {}
+      swp33,41:
+        ip:
           vrf: v-FEL
       swp41:
         ip:
           address:
-            fd31:0008:1001:0301::61/64: {}
+            fc61:0008:1001:0301::61/64: {}
     router:
       bgp:
         autonomous-system: 42008103
@@ -47,6 +49,8 @@
             address-family:
               ipv6-unicast:
                 enable: on
+                network:
+                  fc60:0008:1001:0001::/64: {}
             enable: on
             neighbor:
               swp1:
@@ -64,9 +68,14 @@
                     enable: off
                   ipv6-unicast:
                     enable: on
-                    route-reflector-client: on
-                remote-as: internal
+                remote-as: external
                 type: unnumbered
+          static:
+            default6:
+              address-family: ipv6-unicast
+              via:
+                fc60:8:1001:0301::11:
+                  type: ipv6-address
       v-FEL:
         router:
           bgp:
@@ -90,6 +99,5 @@
                     enable: off
                   ipv6-unicast:
                     enable: on
-                    route-reflector-client: on
-                remote-as: internal
+                remote-as: external
                 type: unnumbered

@@ -4,5 +4,17 @@
     rev-id: 1.0
     version: Cumulus Linux 5.6.0
 - set:
+    interface:
+      lo:
+        ip:
+          address:
+            42.0.81.5/32: {}
+            fd99::42:0:81:5/128: {}
+        type: loopback
+    router:
+      bgp:
+        autonomous-system: 42008103
+        enable: on
+        router-id: 42.0.81.5
     system:
       hostname: KGW01-I-R008S1V01

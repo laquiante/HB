@@ -13,6 +13,8 @@
         type: loopback
       swp1:
         ip:
+          address:
+            fd60:8:1001:1::1/64: {}
           vrf: n-FEL
       swp1,11,33,41:
         type: swp
@@ -22,6 +24,8 @@
             f340:0008:1001:0301::1/64: {}
       swp33:
         ip:
+          address:
+            fd61:8:1001:1::63/64: {}
           vrf: v-FEL
       swp41:
         ip:

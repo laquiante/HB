@@ -11,6 +11,23 @@
             42.0.81.5/32: {}
             fd99::42:0:81:5/128: {}
         type: loopback
+      swp1:
+        ip:
+          address:
+            fd40:0008:1001::1/64: {}
+          vrf: Hamburg
+      swp1,31,33:
+        type: swp
+      swp31:
+        ip:
+          address:
+            fd60:0008:1001::31/64: {}
+          vrf: n-FEL
+      swp33:
+        ip:
+          address:
+            fd61:0008:1001::33/64: {}
+          vrf: v-FEL
     router:
       bgp:
         autonomous-system: 42008103
@@ -18,3 +35,23 @@
         router-id: 42.0.81.5
     system:
       hostname: KGW01-I-R008S1V01
+    vrf:
+      Hamburg: {}
+      n-FEL:
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+            enable: on
+            neighbor:
+              swp31:
+                remote-as: internal
+                type: unnumbered
+      v-FEL:
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+            enable: on

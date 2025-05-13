@@ -33,7 +33,7 @@
   tasks:
     - name: copy startup.yaml
       ansible.builtin.template:
-        src: /home/cumulus/HB/.E/{{ inventory_hostname }}.j2
+        src: /home/cumulus/HB/.E/templates/{{ inventory_hostname }}.j2
         dest: /etc/nvue.d/startup.yaml
     # aktivieren
     - name: activate changes for leaf
@@ -48,7 +48,7 @@
   tasks:
     - name: copy startup.yaml
       ansible.builtin.template:
-        src: /home/cumulus/HB/.E/{{ inventory_hostname }}.j2
+        src: /home/cumulus/HB/.E/templates/{{ inventory_hostname }}.j2
         dest: /etc/nvue.d/startup.yaml
     # aktivieren
     - name: activate changes for leaf

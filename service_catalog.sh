@@ -7,8 +7,9 @@ echo "*    Demo, Hamburg 2025 - 03.04.2025                    *"
 echo "*                                                        *"
 echo "*                                                        *"
 echo "*    1  Hausputz 07.04.2025 19:49 Uhr läuft              *"
-echo "*    2  IPv6     07.04.2025 19:00 Uhr ubuntu + igw01       *"
-echo "*    3  Ende                                             *"
+echo "*    2  IPv6     07.04.2025 19:00 Uhr ubuntu + igw01     *"
+echo "*    3  Tunnel in Arbeit                                 *"
+echo "*    4  Ende                                             *"
 echo "*                                                        *"
 echo "********************** end *******************************"
 echo
@@ -26,6 +27,11 @@ do
         "B")
             echo "Auswahl IPv6"
             sudo ansible-playbook -i /home/cumulus/HB/inventory/files/hosts /home/cumulus/HB/.D/main.yaml
+            break
+            ;;
+        "C")
+            echo "Auswahl Tunnel"
+            sudo ansible-playbook -i /home/cumulus/HB/inventory/files/hosts /home/cumulus/HB/.E/main.yaml
             break
             ;;
          "Ende")

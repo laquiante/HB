@@ -15,7 +15,7 @@
         description: Kunde-Hans
         ip:
           address:
-            fd01:0008:0001::1/64: {}
+            {{ SWP1_IPv6 }}: {}
       swp1-2,31-32:
         type: swp
       swp2:

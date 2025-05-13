@@ -8,7 +8,7 @@
       lo:
         ip:
           address:
-            21.0.81.2/32: {}
+            {{ IP_LO_IPv4 }}
             fd99::21.0.81.2/128: {}
         type: loopback
       swp1:

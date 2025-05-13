@@ -1,0 +1,15 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: true
+    eth1:
+      dhcp4: false
+      dhcp6: false
+      addresses:
+      - fd32:0011:0065::10/64
+      routes:
+        - to: "::/0"
+          via: fd32:0011:0065::1/64
+          on-link: true 

@@ -53,6 +53,37 @@
     # aktivieren
     - name: activate changes for leaf
       shell:  nv config apply startup -y
+
+- hosts: VGW01-A-R008S1V01
+  vars_files:
+    - /home/cumulus/HB/.E/vars/VGW01-A-R008S1V01_vars.yaml
+  name: startup
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: copy startup.yaml
+      ansible.builtin.template:
+        src: /home/cumulus/HB/.E/templates/{{ inventory_hostname }}.j2
+        dest: /etc/nvue.d/startup.yaml
+    # aktivieren
+    - name: activate changes for leaf
+      shell:  nv config apply startup -y
+
+- hosts: SVC01-A-R008S1V01
+  vars_files:
+    - /home/cumulus/HB/.E/vars/SVC01-A-R008S1V01_vars.yaml
+  name: startup
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: copy startup.yaml
+      ansible.builtin.template:
+        src: /home/cumulus/HB/.E/templates/{{ inventory_hostname }}.j2
+        dest: /etc/nvue.d/startup.yaml
+    # aktivieren
+    - name: activate changes for leaf
+      shell:  nv config apply startup -y
+
       
 # optional lab task      
       

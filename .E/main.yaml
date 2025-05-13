@@ -69,7 +69,7 @@
     - name: activate changes for leaf
       shell:  nv config apply startup -y
 
-- hosts: SVC01-A-R008S1V01
+- hosts: SVC01-R008S1V01
   vars_files:
     - /home/cumulus/HB/.E/vars/SVC01-A-R008S1V01_vars.yaml
   name: startup

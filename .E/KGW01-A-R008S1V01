@@ -1,0 +1,107 @@
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.6.0
+- set:
+    interface:
+      lo:
+        ip:
+          address:
+            41.0.81.2/32: {}
+            fd99::41:0:81:2/128: {}
+        type: loopback
+      swp1:
+        ip:
+          address:
+            fd10:0008:1001:0001::1/64: {}
+          vrf: Hamburg
+      swp1-2,31,33:
+        type: swp
+      swp2:
+        ip:
+          address:
+            fd10:0008:1001:0002::1/64: {}
+      swp31:
+        ip:
+          address:
+            fd30:0008:1001:0001::31/64: {}
+          vrf: n-FEL
+      swp33:
+        ip:
+          address:
+            fd31:0008:1001:0001::33/64: {}
+          vrf: v-FEL
+    router:
+      bgp:
+        autonomous-system: 42008102
+        enable: on
+        router-id: 41.0.81.2
+    system:
+      hostname: KGW01-A-R008S1V01
+    vrf:
+      Bremen: {}
+      Hamburg:
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+                network:
+                  ::/0: {}
+            enable: on
+            neighbor:
+              swp1:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+          static:
+            default6:
+              address-family: ipv6-unicast
+              via:
+                fd30:0008:1001:0101::1:
+                  type: ipv6-address
+                  vrf: n-FEL
+      Hannover: {}
+      Kiel: {}
+      n-FEL:
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+            enable: on
+            neighbor:
+              swp31:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                remote-as: internal
+                type: unnumbered
+      v-FEL:
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+                route-import:
+                  from-vrf:
+                    enable: on
+                    list:
+                      Hamburg: {}
+            enable: on
+            neighbor:
+              swp33:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                remote-as: internal
+                type: unnumbered

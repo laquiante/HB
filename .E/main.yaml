@@ -26,7 +26,7 @@
 
 - hosts: IGW01-R008S1V01 
   vars_files:
-    - /home/cumulus/HB/.E/vars/external_vars.yaml
+    - /home/cumulus/HB/.E/vars/IGW01-R008S1V01_vars.yaml
   name: startup
   become: yes
   gather_facts: no

@@ -15,7 +15,7 @@ echo "********************** end *******************************"
 echo
 echo 
 PS3='Auswahl: '
-options=("A" "B" "Ende")
+options=("A" "B" "C" "Ende")
 select opt in "${options[@]}"
 do
     case $opt in

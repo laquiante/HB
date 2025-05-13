@@ -8,8 +8,8 @@
       lo:
         ip:
           address:
-            {{ IP_LO_IPv4 }}
-            fd99::21.0.81.2/128: {}
+            {{ IP_LO_IPv4 }}: {}
+            {{ IP_LO_IPv6 }}: {}
         type: loopback
       swp1:
         description: Kunde-Hans

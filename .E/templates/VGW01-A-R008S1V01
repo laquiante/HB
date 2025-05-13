@@ -1,0 +1,107 @@
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.6.0
+- set:
+    interface:
+      lo:
+        ip:
+          address:
+            61.0.81.2/32: {}
+            fd99::61:0:81:2/128: {}
+        type: loopback
+      swp1:
+        ip:
+          address:
+            fd30:0008:1001:0001::1/64: {}
+      swp1,11:
+        ip:
+          vrf: n-FEL
+      swp1,11,33,41:
+        type: swp
+      swp11:
+        ip:
+          address:
+            fd30:0008:1001:0101::11/64: {}
+      swp33:
+        ip:
+          address:
+            fd31:0008:1001:0001::63/64: {}
+      swp33,41:
+        ip:
+          vrf: v-FEL
+      swp41:
+        ip:
+          address:
+            fd30:0008:1001:0101::61/64: {}
+    router:
+      bgp:
+        autonomous-system: 42008102
+        enable: on
+        router-id: 61.0.81.2
+    system:
+      hostname: VGW01-A-R008S1V01
+    vrf:
+      n-FEL:
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+                network:
+                  fd30:0008:1001:0001::/64: {}
+                  fd30:0008:1001:0101::/64: {}
+            enable: on
+            neighbor:
+              swp1:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                    route-reflector-client: on
+                remote-as: internal
+                type: unnumbered
+              swp11:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+          static:
+            default6:
+              address-family: ipv6-unicast
+              via:
+                fd30:8:1001:0101::1:
+                  type: ipv6-address
+      v-FEL:
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+                network:
+                  fd31:0008:1001:0001::/64: {}
+                  fd31:0008:1001:0101::/64: {}
+            enable: on
+            neighbor:
+              swp33:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                    route-reflector-client: on
+                remote-as: internal
+                type: unnumbered
+              swp41:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                remote-as: external
+                type: unnumbered

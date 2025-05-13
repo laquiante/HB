@@ -32,8 +32,8 @@
   gather_facts: no
   tasks:
     - name: copy startup.yaml
-      copy:
-        src: /home/cumulus/HB/.E/{{ inventory_hostname }}
+      ansible.builtin.template:
+        src: /home/cumulus/HB/.E/{{ inventory_hostname }}.j2
         dest: /etc/nvue.d/startup.yaml
     # aktivieren
     - name: activate changes for leaf

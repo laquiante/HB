@@ -4,6 +4,15 @@
     rev-id: 1.0
     version: Cumulus Linux 5.6.0
 - set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '10':
+              vni:
+                '10': {}
+    evpn:
+      enable: on
     interface:
       lo:
         ip:
@@ -13,6 +22,11 @@
         type: loopback
       swp1:
         type: swp
+    nve:
+      vxlan:
+        enable: on
+        source:
+          address: 81.0.81.2
     router:
       bgp:
         autonomous-system: 65101
@@ -48,11 +62,17 @@
           enable: on
           vni:
             '5001': {}
+        loopback:
+          ip:
+            address:
+              fd99::81.0.81.2/128: {}
         router:
           bgp:
             address-family:
               ipv6-unicast:
                 enable: on
+                network:
+                  fd99::81.0.81.2/128: {}
             enable: on
             neighbor:
               swp1:
@@ -63,11 +83,17 @@
           enable: on
           vni:
             '4001': {}
+        loopback:
+          ip:
+            address:
+              fd99::81.0.81.2/128: {}
         router:
           bgp:
             address-family:
               ipv6-unicast:
                 enable: on
+                network:
+                  fd99::81.0.81.2/128: {}
             enable: on
             neighbor:
               swp1:

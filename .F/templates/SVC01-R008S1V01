@@ -1,0 +1,75 @@
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.6.0
+- set:
+    interface:
+      lo:
+        ip:
+          address:
+            81.0.81.2/32: {}
+            fd99::81.0.81.2/128: {}
+        type: loopback
+      swp1:
+        type: swp
+    router:
+      bgp:
+        autonomous-system: 65101
+        enable: on
+        router-id: 81.0.81.2
+    system:
+      hostname: SVC01-R008S1V01
+    vrf:
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  81.0.81.2/32: {}
+              ipv6-unicast:
+                enable: on
+              l2vpn-evpn:
+                enable: on
+            enable: on
+            neighbor:
+              swp1:
+                address-family:
+                  ipv6-unicast:
+                    enable: on
+                  l2vpn-evpn:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+      n-FEL:
+        evpn:
+          enable: on
+          vni:
+            '5001': {}
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+            enable: on
+            neighbor:
+              swp1:
+                remote-as: external
+                type: unnumbered
+      v-FEL:
+        evpn:
+          enable: on
+          vni:
+            '4001': {}
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+            enable: on
+            neighbor:
+              swp1:
+                remote-as: external
+                type: unnumbered

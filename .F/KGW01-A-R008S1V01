@@ -84,3 +84,14 @@
           enable: on
           vni:
             '4001': {}
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+                route-import:
+                  from-vrf:
+                    enable: on
+                    list:
+                      Hamburg: {}
+            enable: on

@@ -1,0 +1,86 @@
+- header:
+    model: VX
+    nvue-api-version: nvue_v1
+    rev-id: 1.0
+    version: Cumulus Linux 5.6.0
+- set:
+    bridge:
+      domain:
+        br_default:
+          vlan:
+            '10':
+              vni:
+                '10': {}
+    evpn:
+      enable: on
+    interface:
+      lo:
+        ip:
+          address:
+            41.0.81.2/32: {}
+            fd99::41:0:81:2/128: {}
+        type: loopback
+      swp1:
+        ip:
+          address:
+            fd10:0008:1001:0001::1/64: {}
+      swp1,31:
+        type: swp
+    nve:
+      vxlan:
+        enable: on
+        source:
+          address: 41.0.81.2
+    router:
+      bgp:
+        autonomous-system: 65103
+        enable: on
+        router-id: 41.0.81.2
+    system:
+      hostname: KGW01-R008S1V01
+    vrf:
+      Hamburg:
+        router:
+          bgp:
+            address-family:
+              ipv6-unicast:
+                enable: on
+                network:
+                  ::/0: {}
+            enable: on
+            neighbor:
+              swp1:
+                address-family:
+                  ipv4-unicast:
+                    enable: off
+                  ipv6-unicast:
+                    enable: on
+                remote-as: external
+                type: unnumbered
+      default:
+        router:
+          bgp:
+            address-family:
+              ipv4-unicast:
+                enable: on
+                network:
+                  41.0.81.2/32: {}
+              ipv6-unicast:
+                enable: on
+              l2vpn-evpn:
+                enable: on
+            enable: on
+            neighbor:
+              swp31:
+                remote-as: external
+                type: unnumbered
+      n-FEL:
+        evpn:
+          enable: on
+          vni:
+            '5001': {}
+      v-FEL:
+        evpn:
+          enable: on
+          vni:
+            '4001': {}
